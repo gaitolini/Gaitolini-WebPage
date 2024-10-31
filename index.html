@@ -201,7 +201,12 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        atualizarContador();
+        if (!sessionStorage.getItem("visited")) {
+          atualizarContador();
+          sessionStorage.setItem("visited", "true");
+        } else {
+          atualizarContadorVisual();
+        }
       });
 
       function atualizarContador() {
@@ -216,10 +221,18 @@
             const visitas = data.visitas;
             const textoVisitas = `Você é o meu ${visitas}º visitante, que satisfação ver você aqui!`;
             document.getElementById("visitor-counter").innerText = textoVisitas;
+            sessionStorage.setItem("contador-visitas", textoVisitas);
           })
           .catch((error) => {
             console.error("Erro ao buscar o contador de visitas:", error);
           });
+      }
+
+      function atualizarContadorVisual() {
+        const textoVisitas = sessionStorage.getItem("contador-visitas");
+        if (textoVisitas) {
+          document.getElementById("visitor-counter").innerText = textoVisitas;
+        }
       }
     </script>
   </body>
