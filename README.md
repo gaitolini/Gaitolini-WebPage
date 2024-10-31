@@ -51,3 +51,13 @@ function atualizarContador() {
 
 ## Referências ao Backend
 Para ver o backend que fornece o contador de visitas para este site, visite o repositório: [Count-Web-Site](https://github.com/gaitolini/Count-Web-Site).
+
+## Se você quiser saber mais sobre este projeto ou discutir futuras colaborações, entre em contato comigo:
+
+- LinkedIn: [Anderson Gaitolini](https://www.linkedin.com/in/andersongaitolini/)
+- WhatsApp: [Entre em contato](https://wa.me/qr/CFND4RGOJHHUN1)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/a019d3e6-5a04-4124-b42b-b5824d1f92d5" alt="image" width="300"/>
+</div>
+
+🚀 Feito com muito Javascript, CSS,HTML, Github Pages e Cloudflare por Anderson Gaitolini❤️.
