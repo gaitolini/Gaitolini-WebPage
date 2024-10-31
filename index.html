@@ -25,6 +25,18 @@
       <link rel="stylesheet" href="css/style.css" />
       <link rel="stylesheet" href="css/style-desktop.css" />
     </noscript>
+    <style>
+      .visitor-counter {
+        font-size: 1.5em;
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f7f7f7;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+    </style>
   </head>
   <body class="homepage">
     <!-- Header -->
@@ -60,6 +72,9 @@
           SQL, com uma paixão por IoT e automação residencial. Navegue pelo meu
           portfólio para conhecer minhas habilidades e projetos.
         </p>
+        <div class="visitor-counter" id="visitor-counter">
+          <!-- O texto do contador de visitas será atualizado pelo JavaScript -->
+        </div>
         <hr />
         <div class="row">
           <section class="4u">
@@ -183,5 +198,29 @@
 
     <!-- Copyright -->
     <div class="copyright">Design adaptado por Anderson Gaitolini</div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        atualizarContador();
+      });
+
+      function atualizarContador() {
+        fetch("https://counterwebsitexyz.fly.dev/api/contador-visitas")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Erro ao carregar contador de visitas.");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const visitas = data.visitas;
+            const textoVisitas = `Você é o meu ${visitas}º visitante, que satisfação ver você aqui!`;
+            document.getElementById("visitor-counter").innerText = textoVisitas;
+          })
+          .catch((error) => {
+            console.error("Erro ao buscar o contador de visitas:", error);
+          });
+      }
+    </script>
   </body>
 </html>
